@@ -31,7 +31,6 @@ http.createServer((req, res) => {
     } else if (req.method==='DELETE' && req.url.includes('/user')) {
         readFile((users)=> {
            const query = url.parse(req.url, true).query;
-           // [{username: shahar, password: 123}] => shahar; 'shahar' => {username: shahar, password: 123} === 'shahar' ?
            const index = users.findIndex((user)=> user.username === query.username);
            if( index > -1) {
                users.splice(index, 1);
